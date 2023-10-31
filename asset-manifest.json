@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/game_task/static/css/main.97a28c4e.css",
+    "main.js": "/game_task/static/js/main.7d48bf56.js",
+    "index.html": "/game_task/index.html",
+    "main.97a28c4e.css.map": "/game_task/static/css/main.97a28c4e.css.map",
+    "main.7d48bf56.js.map": "/game_task/static/js/main.7d48bf56.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.97a28c4e.css",
+    "static/js/main.7d48bf56.js"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "short_name": "Game task",
+  "name": "Game task",
+  
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
