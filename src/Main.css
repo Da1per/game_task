@@ -1,0 +1,18 @@
+.main{
+
+}
+.lvl_bar{
+    display: block;
+    border: 2px solid #000000;
+    border-radius: 5px;
+    width: 350px;
+    height: 40px;
+    background-color: blueviolet;
+}
+.lvl_progress{
+    border: 2px solid #000000;
+    border-radius: 5px;
+    width: 150px;
+    height: 36px;
+    background-color: rgb(255, 211, 89);
+}
