@@ -1,1 +1,1 @@
-https://da1per.github.io/game_task/
+https://da1per.github.io/game_task/ 

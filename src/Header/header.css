@@ -1,0 +1,24 @@
+.header{
+    height: 50px;
+    background: #dbdbdb;
+    border: 2px solid;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.header_secion_left{
+    display: flex;
+    justify-content: space-between;
+}
+.header_secion_left_status{
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    color: #dbdbdb;
+    height: 25px;
+    width: 450px;
+    border: 1px solid;
+    border-radius: 20px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 2%, rgba(44,44,161,1) 54%, rgba(0,212,255,1) 100%);
+}

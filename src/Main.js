@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import './Main.css'
+import LeftSection from './LeftSection/LeftSection';
+import MainSection from './MainSection/MainSection';
 const Main = ()=>{
     return (
         <div className='main'>
-            <div className='block_lvl'>
-                <h2>LvL</h2>
-                <div className='lvl_bar'>
-                    <div className='lvl_progress'> 15 </div> 
-                </div>
-            </div>
-            <h1>Hello User</h1>
+            <LeftSection/>
+            <MainSection/>
         </div>
     )
 }
