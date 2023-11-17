@@ -1,23 +1,32 @@
 import React, { useState } from 'react';
+import { useSelector,useDispatch } from 'react-redux'
+import   {
+  toInicel
+  
+} from "./reducer/reduceSlice" 
 
 const Form = ()=>{
+    const dispatch = useDispatch()
+    const curName = useSelector((state) => state.reduceSlice.persName)
+
     const [name, setName] = useState('');
     const handleEmailChange =(event)=>{
       setName(event.target.value);
     }
     const sum =()=>{
-      let date = new Date(Date.now() + 604800e3);
-      date = date.toUTCString();
-      document.cookie = `name=${name}; expires= + ${date}`;
+      localStorage.setItem('test',name)
+      alert(localStorage.getItem('test'))
+      dispatch(toInicel(localStorage.getItem('test')))
     }
     return (
-      <form >
+      <div >
         <label>Enter name</label>
         <input 
           value={name}
           onChange={handleEmailChange} />
-        <button onClick={sum}>Submit</button>
-      </form>
+        
+         {(name)?<button onClick={sum}>Submit</button>:<button disabled>Submit</button>}
+      </div>
     )
   }
   export default Form;

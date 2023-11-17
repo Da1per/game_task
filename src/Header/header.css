@@ -22,3 +22,26 @@
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 2%, rgba(44,44,161,1) 54%, rgba(0,212,255,1) 100%);
 }
+.header_section_left_avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid;
+}
+.header_section_right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 30px;
+    border-radius: 15px;
+    border: 1px solid;
+    background: beige;
+
+}
+.header_section_right:hover{
+    background: rgba(98, 176, 240, 0.486);
+    width: 55px;
+    height: 35px;
+    font-size: larger;
+}

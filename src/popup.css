@@ -1,0 +1,22 @@
+.popup{
+    width: 1000px;
+    height: 800px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(52, 52, 52, 0.24);
+}
+.popup_main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 250px;
+    border: 1px rgba(70, 68, 85, 0.333) solid;
+    border-radius: 20px;
+    background-color: azure;
+}
