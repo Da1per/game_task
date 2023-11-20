@@ -4,12 +4,14 @@ import Form from './Form';
 import Main from './Main';
 import Header from './Header/Header';
 import PopUp from "./PopUp"
+import { useSelector,useDispatch } from 'react-redux'
 function App() {
+  let names = useSelector((state) => state.reduceSlice.persName)
   let locStor=localStorage.getItem('test')
-  console.log(locStor)
+  console.log(names)
   return (
     <div className="App">
-      {(!locStor)?<PopUp/>:null}
+      {(!locStor||names)?<PopUp/>:null}
       <Header/>
       <Main/>
 

@@ -1,21 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    name:''
+    names:'',
+    tasks:[]
     
 }
 const reduceSlice = createSlice ({
-    persName: 'data',
+    name: 'data',
     initialState,
     reducers:{
         toInicel(state,action){
             const setName = action.payload
-            state.name = setName
+            state.names = setName
+        },
+        toCreateTask(state,action){
+            const setName = action.payload
+            state.tasks.push(setName) 
         }
      
     }
 })
 export const {
-    toInicel
+    toInicel,
+    toCreateTask
   } = reduceSlice.actions
 export default reduceSlice.reducer

@@ -9,24 +9,24 @@ const Form = ()=>{
     const dispatch = useDispatch()
     const curName = useSelector((state) => state.reduceSlice.persName)
 
-    const [name, setName] = useState('');
+    const [name1, setName] = useState('');
     const handleEmailChange =(event)=>{
       setName(event.target.value);
     }
     const sum =()=>{
-      localStorage.setItem('test',name)
+      localStorage.setItem('test',name1)
       alert(localStorage.getItem('test'))
       dispatch(toInicel(localStorage.getItem('test')))
     }
     return (
-      <div >
+      <form >
         <label>Enter name</label>
         <input 
-          value={name}
+          value={name1}
           onChange={handleEmailChange} />
         
-         {(name)?<button onClick={sum}>Submit</button>:<button disabled>Submit</button>}
-      </div>
+         {(name1)?<button onClick={sum}>Submit</button>:<button disabled>Submit</button>}
+      </form>
     )
   }
   export default Form;

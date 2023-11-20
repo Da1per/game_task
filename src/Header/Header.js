@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import "./header.css"
 const Header = ()=>{
     let locStor=localStorage.getItem('test')
-    console.log(locStor)
+    let del=()=>{ localStorage.removeItem('test')}
     return (
     <div className='header'>
         <div className='header_secion_left'>
@@ -12,9 +12,9 @@ const Header = ()=>{
                 LvL 20
             </div>
         </div>
-        <div className='header_section_right'>
+        <button className='header_section_right' onClick={del}>
             Exit
-        </div>
+        </button>
 
     </div>
   )
