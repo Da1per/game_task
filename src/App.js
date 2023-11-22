@@ -5,13 +5,18 @@ import Main from './Main';
 import Header from './Header/Header';
 import PopUp from "./PopUp"
 import { useSelector,useDispatch } from 'react-redux'
+import   {
+  toInicel
+} from "./reducer/reduceSlice" 
 function App() {
-  let names = useSelector((state) => state.reduceSlice.persName)
+  let names = useSelector((state) => state.reduceSlice.names)
   let locStor=localStorage.getItem('test')
-  console.log(names)
+  const dispatch = useDispatch()
+  dispatch(toInicel(localStorage.getItem('test')))
+
   return (
     <div className="App">
-      {(!locStor||names)?<PopUp/>:null}
+      {(!names)?<PopUp/>:null}
       <Header/>
       <Main/>
 

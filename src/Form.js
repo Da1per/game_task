@@ -7,7 +7,7 @@ import   {
 
 const Form = ()=>{
     const dispatch = useDispatch()
-    const curName = useSelector((state) => state.reduceSlice.persName)
+    const curName = useSelector((state) => state.reduceSlice.names)
 
     const [name1, setName] = useState('');
     const handleEmailChange =(event)=>{
@@ -17,16 +17,17 @@ const Form = ()=>{
       localStorage.setItem('test',name1)
       alert(localStorage.getItem('test'))
       dispatch(toInicel(localStorage.getItem('test')))
+      console.log(curName)
     }
     return (
-      <form >
+      <div >
         <label>Enter name</label>
         <input 
           value={name1}
           onChange={handleEmailChange} />
         
          {(name1)?<button onClick={sum}>Submit</button>:<button disabled>Submit</button>}
-      </form>
+      </div>
     )
   }
   export default Form;
