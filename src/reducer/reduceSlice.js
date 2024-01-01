@@ -16,12 +16,18 @@ const reduceSlice = createSlice ({
         toCreateTask(state,action){
             const setName = action.payload
             state.tasks.push(setName) 
+            localStorage.setItem('tasks',JSON.stringify(state.tasks))
+        },
+        toDel(state,action){
+            const id = action.payload
+            state.tasks.splice(id,1)
         }
      
     }
 })
 export const {
     toInicel,
-    toCreateTask
+    toCreateTask,
+    toDel
   } = reduceSlice.actions
 export default reduceSlice.reducer
