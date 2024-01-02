@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
 import "./header.css"
-const Header = ()=>{
+import Button from '@mui/material/Button';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+export default function Header (){
     let locStor=localStorage.getItem('test')
-    let del=()=>{ localStorage.removeItem('test')}
+    let del=()=>{ 
+        localStorage.removeItem('test')
+        localStorage.removeItem('tasks')}
     return (
     <div className='header'>
         <div className='header_secion_left'>
@@ -12,11 +15,7 @@ const Header = ()=>{
                 LvL 20
             </div>
         </div>
-        <button className='header_section_right' onClick={del}>
+        <Button variant="contained" className='header_section_right' startIcon={<ExitToAppIcon/>} onClick={del}>
             Exit
-        </button>
-
-    </div>
-  )
-}
-export default Header;
+        </Button>
+    </div>)}

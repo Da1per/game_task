@@ -39,12 +39,3 @@
     background: beige;
 
 }
-.header_section_right:hover{
-    background: rgba(98, 176, 240, 0.486);
-    width: 55px;
-    height: 35px;
-    font-size: larger;
-}
-.header_section_right:active{
-    background: rgba(255, 31, 31, 0.486);
-}

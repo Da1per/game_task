@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
 import Form from "./Form"
 import "./popup.css"
-const PopUp = ()=>{
-    
-    
-    
+
+export default function PopUp (){
     return (
         <div className='popup'>
             <div className='popup_main'> 
             <Form/>
             </div>
-        </div>
-    )
+        </div>)
   }
-  export default PopUp;

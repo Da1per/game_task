@@ -1,27 +1,19 @@
 import './App.css';
-// import React, { useState } from 'react';
-import Form from './Form';
 import Main from './Main';
 import Header from './Header/Header';
 import PopUp from "./PopUp"
 import { useSelector,useDispatch } from 'react-redux'
-import   {
-  toInicel
-} from "./reducer/reduceSlice" 
-function App() {
+import   {toInicel} from "./reducer/reduceSlice" 
+export default function App() {
   let names = useSelector((state) => state.reduceSlice.names)
-  let locStor=localStorage.getItem('test')
+  let tasks = localStorage.getItem('tasks')
   const dispatch = useDispatch()
-  dispatch(toInicel(localStorage.getItem('test')))
-
+  dispatch(toInicel([localStorage.getItem('test'),(tasks!==null)?JSON.parse( tasks ):[]]))
   return (
     <div className="App">
       {(!names)?<PopUp/>:null}
       <Header/>
       <Main/>
+    </div>)}
 
-    </div>
-  );
-}
 
-export default App;

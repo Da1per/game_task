@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import './Main.css'
 import LeftSection from './LeftSection/LeftSection';
 import MainSection from './MainSection/MainSection';
-const Main = ()=>{
+export default function Main(){
     return (
         <div className='main'>
             <LeftSection/>
@@ -10,4 +9,3 @@ const Main = ()=>{
         </div>
     )
 }
-export default Main
