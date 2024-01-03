@@ -4,6 +4,7 @@ import   { toInicel} from "./reducer/reduceSlice"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 export default function Form (){
+  
     const dispatch = useDispatch()
     const curName = useSelector((state) => state.reduceSlice.names)
     const [name1, setName] = useState('');
