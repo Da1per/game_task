@@ -21,7 +21,10 @@ export default function Header (){
     };
     let del=()=>{ 
         localStorage.removeItem('test')
-        localStorage.removeItem('tasks')}
+        localStorage.removeItem('tasks')
+        window.location.reload()
+    }
+
     return (
     <Box className='header'>
         <AppBar position="static">

@@ -5,7 +5,8 @@ import {toDel} from "../reducer/reduceSlice"
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 export default function LeftSection (){
   const dispatch = useDispatch()
   const [taskTabs, setTaskTabs] = useState([]); 
@@ -14,9 +15,21 @@ export default function LeftSection (){
   const chanText =(event)=>{
       setText(event.target.value);
     }
+  const [open, setOpen] = useState(false);
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
   let arrTask= useSelector((state) => state.reduceSlice.tasks)
   let wrap =[]
   let buttonDel=(id)=>{
+    setOpen('true')
     dispatch(toDel(id))
   }
   let buttonEdit=(id)=>{
@@ -38,5 +51,10 @@ export default function LeftSection (){
   },[arrTask])
     return (
     <div className='left_section'>
-        {taskTabs}  
+        {taskTabs} 
+        <Snackbar open={open} autoHideDuration={2600} onClose={handleClose}>
+              <Alert onClose={handleClose} severity="error" sx={{ width: '100%' }}>
+                Task Del
+              </Alert>
+        </Snackbar> 
     </div>)}
