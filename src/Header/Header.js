@@ -6,13 +6,17 @@ import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import LinearProgress from '@mui/material/LinearProgress';
 import { useSelector,useDispatch } from 'react-redux'
 export default function Header (){
     let locStor=localStorage.getItem('test')
     const [anchorEl, setAnchorEl] = useState(null);
     const arrTask= useSelector((state) => state.reduceSlice.tasks)
+    const [lvlStatus, setLvlStatus]= useState([{
+        lvl:0,
+        exp:0
+    }]);
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -24,14 +28,16 @@ export default function Header (){
         localStorage.removeItem('tasks')
         window.location.reload()
     }
-
+    useEffect(() => {
+        
+    },[arrTask])
     return (
     <Box className='header'>
         <AppBar position="static">
             <Toolbar  sx={{justifyContent:"space-between"}}>
                 <Box sx={{ width: '50%' }}>
                     <LinearProgress color="secondary" sx={{height:"20px",borderRadius:'10px'}} variant="determinate" value={arrTask.length*10}/>
-                LvL 20
+                {(arrTask.length>10)?Math.round(arrTask.length/10):0}
                 </Box>
                 <Box>
                     <span>{(locStor)?locStor:null}</span>
