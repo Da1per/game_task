@@ -1,10 +1,18 @@
 .left_section{
     width: 30%;
-    height: 1000px;
+    height: 100%;
     border: 2px solid;
 }
 .left_section_wrap{
     width: 80%;
     height: 50px;
     border: 1px solid;
+}
+@media (min-width: 200px) and (max-width: 1070px) {
+    .left_section{
+        width: 100%;
+    }
+    .left_section_wrap{
+        width: 100%;}
+    
 }
