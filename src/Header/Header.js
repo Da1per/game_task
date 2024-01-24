@@ -13,10 +13,13 @@ export default function Header (){
     let locStor=localStorage.getItem('test')
     const [anchorEl, setAnchorEl] = useState(null);
     const arrTask= useSelector((state) => state.reduceSlice.tasks)
-    const [lvlStatus, setLvlStatus]= useState([{
+    const [lvlStatus, setLvlStatus]= useState({
         lvl:0,
         exp:0
-    }]);
+    });
+    let lvlInfo= {lvl:JSON.parse(localStorage.getItem('lvl'))}
+    
+    
     const handleMenu = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -26,18 +29,44 @@ export default function Header (){
     let del=()=>{ 
         localStorage.removeItem('test')
         localStorage.removeItem('tasks')
+        localStorage.removeItem('lvl')
         window.location.reload()
     }
     useEffect(() => {
         
+        if (lvlStatus.lvl===0 && lvlStatus.exp===0 && lvlInfo.lvl!==null){
+            setLvlStatus({
+                lvl:lvlInfo.lvl.lvl,
+                exp:lvlInfo.lvl.exp
+            })
+            
+        }
+        else{
+            if (lvlStatus.exp>=10){
+                setLvlStatus({
+                    lvl:lvlStatus.lvl+1,
+                    exp:0
+                })
+            }
+            else{
+                setLvlStatus({
+                    lvl:lvlStatus.lvl,
+                    exp:lvlStatus.exp+1
+                })
+            }
+            if(lvlStatus.exp>0){localStorage.setItem('lvl',JSON.stringify({lvl:lvlStatus.lvl,exp:lvlStatus.exp}))}
+        }
+        
+        
     },[arrTask])
+    
     return (
     <Box className='header'>
         <AppBar position="static">
             <Toolbar  sx={{justifyContent:"space-between"}}>
                 <Box sx={{ width: '50%' }}>
-                    <LinearProgress color="secondary" sx={{height:"20px",borderRadius:'10px'}} variant="determinate" value={arrTask.length*10}/>
-                {(arrTask.length>10)?Math.round(arrTask.length/10):0}
+                    <LinearProgress color="secondary" sx={{height:"20px",borderRadius:'10px'}} variant="determinate" value={lvlStatus.exp*10}/>
+                 {lvlStatus.lvl} LvL
                 </Box>
                 <Box>
                     <span>{(locStor)?locStor:null}</span>
